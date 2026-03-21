@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — BugOff</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0e0604;
+      --surface:   #1a0a02;
+      --border:    rgba(250,204,21,0.12);
+      --gold:      #FACC15;
+      --gold-dim:  rgba(250,204,21,0.5);
+      --text:      #f5efe8;
+      --muted:     rgba(245,239,232,0.45);
+      --red:       #EF4444;
+      --blue:      #38BDF8;
+      --radius:    18px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+
+    .wrapper {
+      position: relative; z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* Header */
+    .header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bug-icon {
+      font-size: 52px;
+      filter: drop-shadow(0 0 16px rgba(250,204,21,0.4));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .header-text h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .header-text p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* Last updated badge */
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(250,204,21,0.08);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--gold-dim);
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    /* Section */
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    section:hover { border-color: rgba(250,204,21,0.25); }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    h2 .icon { font-size: 20px; }
+
+    p { color: rgba(245,239,232,0.7); margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    ul li {
+      color: rgba(245,239,232,0.7);
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '›';
+      position: absolute; left: 0;
+      color: var(--gold-dim);
+      font-weight: 700;
+    }
+
+    /* Highlight boxes */
+    .highlight {
+      background: rgba(250,204,21,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: rgba(245,239,232,0.8);
+    }
+
+    .highlight.blue {
+      background: rgba(56,189,248,0.06);
+      border-color: var(--blue);
+    }
+
+    .highlight.red {
+      background: rgba(239,68,68,0.06);
+      border-color: var(--red);
+    }
+
+    /* Future ads notice */
+    .ads-notice {
+      background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(250,204,21,0.06));
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .ads-notice h2 { color: #F97316; }
+    .ads-notice .icon-row { font-size: 28px; margin-bottom: 10px; }
+
+    /* Contact */
+    .contact a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(250,204,21,0.3);
+      transition: border-color 0.2s;
+    }
+    .contact a:hover { border-color: var(--gold); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer span { color: var(--gold-dim); }
+
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .header-text h1 { font-size: 28px; }
+      section { padding: 20px; }
+      .wrapper { padding: 40px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="bug-icon">🪰</div>
+      <div class="header-text">
+        <h1>Privacy Policy</h1>
+        <p>BugOff — Smash the Flies</p>
+      </div>
+    </div>
+
+    <div class="badge">📅 Last updated: March 2026</div>
+
+    <!-- Intro -->
+    <section>
+      <h2><span class="icon">📋</span> Introduction</h2>
+      <p>Welcome to <strong>BugOff</strong>. This Privacy Policy explains how we collect, use, and protect information when you use our mobile game.</p>
+      <p>By playing BugOff, you agree to the practices described in this policy. If you do not agree, please discontinue use of the app.</p>
+    </section>
+
+    <!-- Data we collect -->
+    <section>
+      <h2><span class="icon">📦</span> Information We Collect</h2>
+      <p>We collect minimal data to provide core game functionality:</p>
+      <ul>
+        <li><strong>Username</strong> — chosen by you at account creation, stored in our database</li>
+        <li><strong>Password</strong> — stored in our database (we recommend using a unique password)</li>
+        <li><strong>Game progress</strong> — high score, coins, power-ups, levels reached</li>
+        <li><strong>Device data</strong> — basic device info used for crash reporting and performance</li>
+      </ul>
+      <div class="highlight">
+        We do not collect your real name, email address, phone number, or any personally identifiable information beyond your chosen username.
+      </div>
+    </section>
+
+    <!-- How we use data -->
+    <section>
+      <h2><span class="icon">⚙️</span> How We Use Your Data</h2>
+      <p>Your data is used exclusively to:</p>
+      <ul>
+        <li>Save and restore your game progress across devices</li>
+        <li>Maintain your coin balance and owned items</li>
+        <li>Display your account profile and task progress</li>
+        <li>Improve game performance and fix bugs</li>
+      </ul>
+      <p>We do not sell, trade, or share your data with third parties for marketing purposes.</p>
+    </section>
+
+    <!-- Future Ads Notice -->
+    <div class="ads-notice">
+      <h2><span class="icon">📺</span> Advertising (Coming Soon)</h2>
+      <div class="icon-row">📺 🎯 💰</div>
+      <p>BugOff currently uses simulated ads to reward players with coins. In a future update, we plan to integrate <strong>real advertisements</strong> (such as Google AdMob rewarded ads) into the game.</p>
+      <p>When ads are enabled, third-party advertising networks may collect:</p>
+      <ul>
+        <li>Advertising ID (Android GAID)</li>
+        <li>Approximate location (country/region level)</li>
+        <li>Device type and OS version</li>
+        <li>Ad interaction data (views, clicks)</li>
+      </ul>
+      <div class="highlight blue" style="margin-top:14px;">
+        We will update this Privacy Policy before enabling real ads and notify users through an in-app message. You will always have the option to limit ad tracking through your device settings.
+      </div>
+    </div>
+
+    <!-- In-App Purchases -->
+    <section>
+      <h2><span class="icon">🪙</span> In-App Purchases</h2>
+      <p>BugOff includes optional in-app purchases processed through <strong>Google Play</strong>. When you make a purchase:</p>
+      <ul>
+        <li>Payment is handled entirely by Google Play — we never see your payment details</li>
+        <li>Purchased coins are stored in your account in our database</li>
+        <li>All purchases are final — coins are non-refundable virtual currency</li>
+      </ul>
+      <div class="highlight red">
+        In-app purchases are currently disabled. This feature will be enabled in a future update after proper testing and approval.
+      </div>
+    </section>
+
+    <!-- Data storage -->
+    <section>
+      <h2><span class="icon">🗄️</span> Data Storage & Security</h2>
+      <p>Your game data is stored securely using <strong>Supabase</strong>, a cloud database provider. Data is encrypted in transit using HTTPS/TLS.</p>
+      <p>Game progress is also cached locally on your device using AsyncStorage for offline functionality.</p>
+      <div class="highlight">
+        We take reasonable steps to protect your data, but no system is 100% secure. We recommend using a unique password for your BugOff account.
+      </div>
+    </section>
+
+    <!-- Children -->
+    <section>
+      <h2><span class="icon">👶</span> Children's Privacy</h2>
+      <p>BugOff is designed for general audiences. We do not knowingly collect personal information from children under 13 years of age.</p>
+      <p>If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+    </section>
+
+    <!-- Your rights -->
+    <section>
+      <h2><span class="icon">⚖️</span> Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Request deletion of your account and all associated data</li>
+        <li>Request a copy of the data we hold about you</li>
+        <li>Update your username through the app</li>
+      </ul>
+      <p>To exercise these rights, contact us using the information below.</p>
+    </section>
+
+    <!-- Third party -->
+    <section>
+      <h2><span class="icon">🔗</span> Third-Party Services</h2>
+      <p>BugOff uses the following third-party services:</p>
+      <ul>
+        <li><strong>Supabase</strong> — database and authentication</li>
+        <li><strong>Google Play</strong> — app distribution and in-app purchases</li>
+        <li><strong>RevenueCat</strong> — purchase management (future use)</li>
+        <li><strong>Google AdMob</strong> — advertising (future use)</li>
+      </ul>
+      <p>Each service has its own privacy policy which governs their data practices.</p>
+    </section>
+
+    <!-- Changes -->
+    <section>
+      <h2><span class="icon">🔄</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make significant changes — especially before enabling real ads or purchases — we will notify you through an in-app message.</p>
+      <p>Continued use of BugOff after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2><span class="icon">✉️</span> Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or your data, please contact us at:</p>
+      <p><a href="mailto:privacy@bugoff.app">privacy@bugoff.app</a></p>
+      <p style="margin-top:8px; font-size:14px; color: var(--muted);">We aim to respond within 48 hours.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 BugOff. Made with <span>🪰</span> and lots of coffee.</p>
+      <p style="margin-top:6px;">This policy is effective as of <span>March 2026</span>.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
