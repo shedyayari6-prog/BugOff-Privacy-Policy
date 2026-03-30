@@ -17,6 +17,8 @@
       --muted:     rgba(245,239,232,0.45);
       --red:       #EF4444;
       --blue:      #38BDF8;
+      --green:     #4ADE80;
+      --purple:    #A78BFA;
       --radius:    18px;
     }
 
@@ -31,7 +33,6 @@
       min-height: 100vh;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -46,7 +47,6 @@
       padding: 60px 24px 100px;
     }
 
-    /* Header */
     .header {
       display: flex; align-items: center; gap: 16px;
       margin-bottom: 56px;
@@ -74,13 +74,8 @@
       line-height: 1;
     }
 
-    .header-text p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 6px;
-    }
+    .header-text p { color: var(--muted); font-size: 14px; margin-top: 6px; }
 
-    /* Last updated badge */
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(250,204,21,0.08);
@@ -93,7 +88,6 @@
       margin-bottom: 40px;
     }
 
-    /* Section */
     section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -119,17 +113,12 @@
     p { color: rgba(245,239,232,0.7); margin-bottom: 10px; }
     p:last-child { margin-bottom: 0; }
 
-    ul {
-      list-style: none;
-      margin: 10px 0;
-    }
-
+    ul { list-style: none; margin: 10px 0; }
     ul li {
       color: rgba(245,239,232,0.7);
       padding: 5px 0 5px 20px;
       position: relative;
     }
-
     ul li::before {
       content: '›';
       position: absolute; left: 0;
@@ -137,7 +126,6 @@
       font-weight: 700;
     }
 
-    /* Highlight boxes */
     .highlight {
       background: rgba(250,204,21,0.06);
       border-left: 3px solid var(--gold);
@@ -147,18 +135,20 @@
       font-size: 14px;
       color: rgba(245,239,232,0.8);
     }
+    .highlight.blue  { background: rgba(56,189,248,0.06);  border-color: var(--blue); }
+    .highlight.red   { background: rgba(239,68,68,0.06);   border-color: var(--red); }
+    .highlight.green { background: rgba(74,222,128,0.06);  border-color: var(--green); }
+    .highlight.purple{ background: rgba(167,139,250,0.06); border-color: var(--purple); }
 
-    .highlight.blue {
-      background: rgba(56,189,248,0.06);
-      border-color: var(--blue);
+    .feature-banner {
+      background: linear-gradient(135deg, rgba(250,204,21,0.07), rgba(167,139,250,0.05));
+      border: 1px solid rgba(250,204,21,0.2);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 16px;
     }
+    .feature-banner h2 { color: var(--gold); }
 
-    .highlight.red {
-      background: rgba(239,68,68,0.06);
-      border-color: var(--red);
-    }
-
-    /* Future ads notice */
     .ads-notice {
       background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(250,204,21,0.06));
       border: 1px solid rgba(249,115,22,0.3);
@@ -166,11 +156,8 @@
       padding: 24px 28px;
       margin-bottom: 16px;
     }
-
     .ads-notice h2 { color: #F97316; }
-    .ads-notice .icon-row { font-size: 28px; margin-bottom: 10px; }
 
-    /* Contact */
     .contact a {
       color: var(--gold);
       text-decoration: none;
@@ -179,14 +166,12 @@
     }
     .contact a:hover { border-color: var(--gold); }
 
-    /* Footer */
     footer {
       text-align: center;
       margin-top: 60px;
       color: var(--muted);
       font-size: 13px;
     }
-
     footer span { color: var(--gold-dim); }
 
     @media (max-width: 600px) {
@@ -200,12 +185,11 @@
 <body>
   <div class="wrapper">
 
-    <!-- Header -->
     <div class="header">
       <div class="bug-icon">🪰</div>
       <div class="header-text">
         <h1>Privacy Policy</h1>
-        <p>BugOff — Smash the Flies</p>
+        <p>BugOff — Smash the Bugs. Protect the Food.</p>
       </div>
     </div>
 
@@ -214,22 +198,115 @@
     <!-- Intro -->
     <section>
       <h2><span class="icon">📋</span> Introduction</h2>
-      <p>Welcome to <strong>BugOff</strong>. This Privacy Policy explains how we collect, use, and protect information when you use our mobile game.</p>
-      <p>By playing BugOff, you agree to the practices described in this policy. If you do not agree, please discontinue use of the app.</p>
+      <p>Welcome to <strong>BugOff</strong>. This Privacy Policy explains how we collect, use, and protect your information when you play our mobile game, including all features such as the Coin Store, Loot Wheel, Discover Mode, Card Market, and account system.</p>
+      <p>By playing BugOff, you agree to the practices described below. If you do not agree, please discontinue use of the app.</p>
     </section>
 
-    <!-- Data we collect -->
+    <!-- What we collect -->
     <section>
       <h2><span class="icon">📦</span> Information We Collect</h2>
       <p>We collect minimal data to provide core game functionality:</p>
       <ul>
-        <li><strong>Username</strong> — chosen by you at account creation, stored in our database</li>
-        <li><strong>Password</strong> — stored in our database (we recommend using a unique password)</li>
-        <li><strong>Game progress</strong> — high score, coins, power-ups, levels reached</li>
+        <li><strong>Username & Password</strong> — chosen by you at account creation, stored securely in our database</li>
+        <li><strong>Game progress</strong> — high score, coins, XP, level, power-ups (bombs, freezes), character unlocks</li>
+        <li><strong>Discover Mode collection</strong> — enemies you have discovered and kill counts</li>
+        <li><strong>Loot Wheel data</strong> — spin count, pity counter, legendary cards obtained</li>
+        <li><strong>Coin Store progress</strong> — how many ads you have watched toward each coin pack</li>
+        <li><strong>Card Market activity</strong> — cards sold and coins received</li>
+        <li><strong>Task progress</strong> — daily and permanent task completion and claim status</li>
         <li><strong>Device data</strong> — basic device info used for crash reporting and performance</li>
       </ul>
       <div class="highlight">
         We do not collect your real name, email address, phone number, or any personally identifiable information beyond your chosen username.
+      </div>
+    </section>
+
+    <!-- Ads — LIVE -->
+    <div class="ads-notice">
+      <h2><span class="icon">📺</span> Advertising — Active</h2>
+      <p>BugOff uses <strong>Google AdMob rewarded ads</strong>. You can watch ads in the Coin Store to earn free coins, and on the Game Over screen to continue playing or double your coins. Ads are optional — you are never forced to watch one.</p>
+      <p>When you watch an ad, Google AdMob may collect:</p>
+      <ul>
+        <li>Advertising ID (Android GAID / iOS IDFA)</li>
+        <li>Approximate location (country / region level)</li>
+        <li>Device type, OS version, and language</li>
+        <li>Ad interaction data (views, completions, clicks)</li>
+        <li>App usage context for ad relevance</li>
+      </ul>
+      <div class="highlight blue" style="margin-top:14px;">
+        You can limit ad tracking at any time in your device settings: <strong>Settings → Privacy → Advertising</strong> (iOS) or <strong>Settings → Google → Ads</strong> (Android). Limiting tracking does not remove ads but may make them less relevant.
+      </div>
+      <p style="margin-top:12px;">Google AdMob's full privacy policy is available at <a href="https://policies.google.com/privacy" style="color:#38BDF8;">policies.google.com/privacy</a>.</p>
+    </div>
+
+    <!-- Loot Wheel -->
+    <div class="feature-banner">
+      <h2><span class="icon">🎰</span> Loot Wheel & Virtual Gambling Mechanics</h2>
+      <p>BugOff includes a Loot Wheel (Spin Wheel) where players spend in-game coins — a <strong>virtual currency with no real-world monetary value</strong> — for randomized rewards including coins, power-ups, and collectible legendary cards.</p>
+      <ul>
+        <li>Spin costs: 500 / 2,000 / 4,000 coins depending on spin type</li>
+        <li>Rewards are randomized using weighted probability tables stored in our backend</li>
+        <li>A pity system guarantees an Epic reward at 50 spins</li>
+        <li>Legendary cards are one-time collectibles controlled by our backend — once obtained, they cannot be obtained again from the wheel</li>
+        <li>All coin balances, spin counts, and pity counters are stored in your account on our servers</li>
+      </ul>
+      <div class="highlight purple">
+        All rewards from the Loot Wheel are virtual in-game items only. Coins and cards have no cash value and cannot be exchanged for real money.
+      </div>
+    </div>
+
+    <!-- Discover Mode -->
+    <section>
+      <h2><span class="icon">🔍</span> Discover Mode</h2>
+      <p>Discover Mode is a special game mode that costs 2,500 in-game coins to enter. Enemies in this mode are loaded from our backend database, which may include images stored in cloud storage.</p>
+      <ul>
+        <li>When you kill a new enemy for the first time, it is permanently added to your collection in our database</li>
+        <li>Kill counts and discovery timestamps are recorded per player</li>
+        <li>Enemy data (names, images, rarity, spawn rates) is managed by us from the backend and may change over time</li>
+        <li>Retired enemies (marked inactive) are no longer spawned but remain in your collection permanently</li>
+      </ul>
+      <div class="highlight green">
+        Your discovery collection is tied to your account and persists even if an enemy is later retired from the game.
+      </div>
+    </section>
+
+    <!-- Card Market -->
+    <section>
+      <h2><span class="icon">🃏</span> Card Market</h2>
+      <p>The Card Market allows you to sell discovery cards and legendary cards for in-game coins. Sell prices are fixed by rarity (Common: 50, Rare: 1,000, Epic: 2,500, Legendary: 75,000 coins).</p>
+      <ul>
+        <li>For discovery cards, you can sell 1 to all of your kill count copies</li>
+        <li>Legendary cards are one-time items and are permanently deleted from your collection when sold</li>
+        <li>All sell transactions update your account in our database in real time</li>
+        <li>Sold cards cannot be recovered</li>
+      </ul>
+    </section>
+
+    <!-- Coin Store -->
+    <section>
+      <h2><span class="icon">🪙</span> Coin Store — Watch Ads to Earn Coins</h2>
+      <p>The Coin Store lets you earn free coins by watching rewarded ads. Each coin pack requires watching a set number of ads (10–25) before the coins can be claimed.</p>
+      <ul>
+        <li>Your ad watch progress for each pack is saved in your account on our servers</li>
+        <li>Progress is restored when you log in on a different device</li>
+        <li>Coins are credited to your account only after you claim a completed pack</li>
+      </ul>
+      <div class="highlight">
+        Ad viewing is always voluntary. You can play BugOff without ever watching an ad.
+      </div>
+    </section>
+
+    <!-- In-App Purchases -->
+    <section>
+      <h2><span class="icon">💳</span> In-App Purchases</h2>
+      <p>BugOff includes optional in-app purchases for coins and other items, processed through <strong>Google Play</strong>. When you make a purchase:</p>
+      <ul>
+        <li>Payment is handled entirely by Google Play — we never see your payment details</li>
+        <li>Purchased coins are credited to your in-game account</li>
+        <li>All in-app purchases are for virtual currency and items with no real-world value</li>
+      </ul>
+      <div class="highlight red">
+        In-app purchases are currently pending Google Play approval. This feature will be enabled in a future update.
       </div>
     </section>
 
@@ -238,59 +315,31 @@
       <h2><span class="icon">⚙️</span> How We Use Your Data</h2>
       <p>Your data is used exclusively to:</p>
       <ul>
-        <li>Save and restore your game progress across devices</li>
-        <li>Maintain your coin balance and owned items</li>
-        <li>Display your account profile and task progress</li>
+        <li>Save and restore your game progress, coins, XP, and level across devices</li>
+        <li>Track your Discover Mode collection and Loot Wheel history</li>
+        <li>Persist your Coin Store ad progress so you don't lose watch counts</li>
+        <li>Maintain your Card Market sell history and balance</li>
+        <li>Display task progress and claim status</li>
         <li>Improve game performance and fix bugs</li>
       </ul>
       <p>We do not sell, trade, or share your data with third parties for marketing purposes.</p>
     </section>
 
-    <!-- Future Ads Notice -->
-    <div class="ads-notice">
-      <h2><span class="icon">📺</span> Advertising (Coming Soon)</h2>
-      <div class="icon-row">📺 🎯 💰</div>
-      <p>BugOff currently uses simulated ads to reward players with coins. In a future update, we plan to integrate <strong>real advertisements</strong> (such as Google AdMob rewarded ads) into the game.</p>
-      <p>When ads are enabled, third-party advertising networks may collect:</p>
-      <ul>
-        <li>Advertising ID (Android GAID)</li>
-        <li>Approximate location (country/region level)</li>
-        <li>Device type and OS version</li>
-        <li>Ad interaction data (views, clicks)</li>
-      </ul>
-      <div class="highlight blue" style="margin-top:14px;">
-        We will update this Privacy Policy before enabling real ads and notify users through an in-app message. You will always have the option to limit ad tracking through your device settings.
-      </div>
-    </div>
-
-    <!-- In-App Purchases -->
-    <section>
-      <h2><span class="icon">🪙</span> In-App Purchases</h2>
-      <p>BugOff includes optional in-app purchases processed through <strong>Google Play</strong>. When you make a purchase:</p>
-      <ul>
-        <li>Payment is handled entirely by Google Play — we never see your payment details</li>
-        <li>Purchased coins are stored in your account in our database</li>
-        <li>All purchases are final — coins are non-refundable virtual currency</li>
-      </ul>
-      <div class="highlight red">
-        In-app purchases are currently disabled. This feature will be enabled in a future update after proper testing and approval.
-      </div>
-    </section>
-
     <!-- Data storage -->
     <section>
       <h2><span class="icon">🗄️</span> Data Storage & Security</h2>
-      <p>Your game data is stored securely using <strong>Supabase</strong>, a cloud database provider. Data is encrypted in transit using HTTPS/TLS.</p>
-      <p>Game progress is also cached locally on your device using AsyncStorage for offline functionality.</p>
+      <p>Your game data is stored securely using <strong>Supabase</strong>, a cloud database provider with encryption in transit (HTTPS/TLS) and at rest.</p>
+      <p>Game progress is also cached locally on your device using AsyncStorage for offline functionality. Local data is not shared with third parties.</p>
       <div class="highlight">
-        We take reasonable steps to protect your data, but no system is 100% secure. We recommend using a unique password for your BugOff account.
+        We take reasonable steps to protect your data. We recommend using a unique password for your BugOff account.
       </div>
     </section>
 
     <!-- Children -->
     <section>
       <h2><span class="icon">👶</span> Children's Privacy</h2>
-      <p>BugOff is designed for general audiences. We do not knowingly collect personal information from children under 13 years of age.</p>
+      <p>BugOff is designed for general audiences and is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
+      <p>The Loot Wheel and card collection mechanics use virtual coins only — no real money is involved in these features. However, parents should be aware that the game contains randomized reward mechanics.</p>
       <p>If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
     </section>
 
@@ -299,9 +348,9 @@
       <h2><span class="icon">⚖️</span> Your Rights</h2>
       <p>You have the right to:</p>
       <ul>
-        <li>Request deletion of your account and all associated data</li>
+        <li>Request deletion of your account and all associated data (discoveries, cards, progress, spin history)</li>
         <li>Request a copy of the data we hold about you</li>
-        <li>Update your username through the app</li>
+        <li>Opt out of personalized ads through your device advertising settings</li>
       </ul>
       <p>To exercise these rights, contact us using the information below.</p>
     </section>
@@ -311,30 +360,30 @@
       <h2><span class="icon">🔗</span> Third-Party Services</h2>
       <p>BugOff uses the following third-party services:</p>
       <ul>
-        <li><strong>Supabase</strong> — database and authentication</li>
+        <li><strong>Supabase</strong> — database, storage, and backend services for all game data</li>
+        <li><strong>Google AdMob</strong> — rewarded advertising (active)</li>
         <li><strong>Google Play</strong> — app distribution and in-app purchases</li>
         <li><strong>RevenueCat</strong> — purchase management (future use)</li>
-        <li><strong>Google AdMob</strong> — advertising (future use)</li>
+        <li><strong>Expo / EAS</strong> — build and distribution platform</li>
       </ul>
-      <p>Each service has its own privacy policy which governs their data practices.</p>
+      <p>Each service has its own privacy policy governing their data practices.</p>
     </section>
 
     <!-- Changes -->
     <section>
       <h2><span class="icon">🔄</span> Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. When we make significant changes — especially before enabling real ads or purchases — we will notify you through an in-app message.</p>
-      <p>Continued use of BugOff after changes constitutes acceptance of the updated policy.</p>
+      <p>We may update this Privacy Policy as new features are added. When significant changes are made — especially related to advertising, purchases, or data collection — we will notify you through an in-app message.</p>
+      <p>Continued use of BugOff after any changes constitutes acceptance of the updated policy.</p>
     </section>
 
     <!-- Contact -->
     <section class="contact">
       <h2><span class="icon">✉️</span> Contact Us</h2>
       <p>If you have questions about this Privacy Policy or your data, please contact us at:</p>
-      <p><a href="mailto:privacy@bugoff.app">taqyeem.contact@gmail.com</a></p>
+      <p><a href="mailto:taqyeem.contact@gmail.com">taqyeem.contact@gmail.com</a></p>
       <p style="margin-top:8px; font-size:14px; color: var(--muted);">We aim to respond within 48 hours.</p>
     </section>
 
-    <!-- Footer -->
     <footer>
       <p>© 2026 BugOff. Made with <span>🪰</span> and lots of coffee.</p>
       <p style="margin-top:6px;">This policy is effective as of <span>March 2026</span>.</p>
